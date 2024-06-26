@@ -1,5 +1,6 @@
-import { HttpClient } from '@angular/common/http';
 import { Component, inject } from '@angular/core';
+import { ProductsService } from '../../shared/services/products.service';
+import { Product } from '../../interface/product';
 
 @Component({
   selector: 'app-list',
@@ -9,15 +10,13 @@ import { Component, inject } from '@angular/core';
   styleUrl: './list.component.scss',
 })
 export class ListComponent {
-  products: any = [];
+  products: Product[] = [];
 
-  http = inject(HttpClient);
+  productService = inject(ProductsService);
 
   ngOnInit(): void {
-    this.http
-      .get<any>('http://localhost:3000/products')
-      .subscribe((products) => {
-        this.products = products;
-      });
+    this.productService.getAll().subscribe((products) => {
+      this.products = products;
+    });
   }
 }
