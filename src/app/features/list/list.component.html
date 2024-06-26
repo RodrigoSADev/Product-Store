@@ -1,1 +1,7 @@
-<p>list works!</p>
+<section>
+  <ul>
+    @for (product of products; track product.id) {
+    <li>{{ product.name }}</li>
+    }
+  </ul>
+</section>
