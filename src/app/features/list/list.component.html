@@ -1,4 +1,8 @@
 <section>
+  <div class="actions">
+    <a mat-raised-button routerLink="/add-product">Adicionar Produto</a>
+  </div>
+
   @for (product of products; track product.id) {
   <app-card [product]="product" />
   }
