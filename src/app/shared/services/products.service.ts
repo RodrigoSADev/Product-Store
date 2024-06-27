@@ -31,4 +31,10 @@ export class ProductsService {
       payload
     );
   }
+
+  delete(id: string) {
+    return this.http.delete<ProductPayload>(
+      `http://localhost:3000/products/${id}`
+    );
+  }
 }

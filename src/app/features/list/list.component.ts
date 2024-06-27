@@ -4,6 +4,9 @@ import { Product } from '../../interfaces/product';
 import { CardComponent } from '../card/card.component';
 import { Router, RouterLink } from '@angular/router';
 import { MatButtonModule } from '@angular/material/button';
+import { MatDialog } from '@angular/material/dialog';
+import { DeleteComponent } from '../delete/delete.component';
+import { filter } from 'rxjs';
 
 @Component({
   selector: 'app-list',
@@ -17,6 +20,7 @@ export class ListComponent {
 
   productService = inject(ProductsService);
   router = inject(Router);
+  modal = inject(MatDialog);
 
   ngOnInit(): void {
     this.productService.getAll().subscribe((products) => {
@@ -26,5 +30,19 @@ export class ListComponent {
 
   onEdit(product: Product) {
     this.router.navigate(['/edit-product', product.id]);
+  }
+
+  onDelete(product: Product) {
+    this.modal
+      .open(DeleteComponent)
+      .afterClosed()
+      .pipe(filter((answer) => answer))
+      .subscribe(() => {
+        this.productService.delete(product.id).subscribe(() => {
+          this.productService.getAll().subscribe((products) => {
+            this.products = products;
+          });
+        });
+      });
   }
 }
