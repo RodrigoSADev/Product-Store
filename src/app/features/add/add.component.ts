@@ -9,6 +9,8 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { ProductsService } from '../../shared/services/products.service';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-add',
@@ -25,6 +27,8 @@ import { ProductsService } from '../../shared/services/products.service';
 export class AddComponent {
   formBuild = inject(FormBuilder);
   productService = inject(ProductsService);
+  matSnackBar = inject(MatSnackBar);
+  router = inject(Router);
 
   addForm: FormGroup = this.formBuild.group({
     title: ['', [Validators.required]],
@@ -40,7 +44,12 @@ export class AddComponent {
         price: this.addForm.value.price,
       })
       .subscribe(() => {
-        alert('Sucesso');
+        this.matSnackBar.open('Produto adicionado com sucesso!', 'Ok', {
+          duration: 3000,
+          horizontalPosition: 'right',
+          verticalPosition: 'top',
+        });
+        this.router.navigateByUrl('/');
       });
   }
 }
