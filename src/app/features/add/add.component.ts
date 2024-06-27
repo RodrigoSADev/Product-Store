@@ -1,15 +1,15 @@
 import { Component, inject } from '@angular/core';
 import { ProductsService } from '../../shared/services/products.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { Router, RouterLink } from '@angular/router';
+import { Router } from '@angular/router';
 import { FormComponent } from '../../shared/components/form/form.component';
 import { Product } from '../../interfaces/product';
-import { MatButtonModule } from '@angular/material/button';
+import { BackToListComponent } from '../../shared/components/back-to-list/back-to-list.component';
 
 @Component({
   selector: 'app-add',
   standalone: true,
-  imports: [FormComponent, RouterLink, MatButtonModule],
+  imports: [FormComponent, BackToListComponent],
   templateUrl: './add.component.html',
   styleUrl: './add.component.scss',
 })
