@@ -8,6 +8,7 @@ import {
 import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
+import { ProductsService } from '../../shared/services/products.service';
 
 @Component({
   selector: 'app-add',
@@ -23,14 +24,23 @@ import { MatInputModule } from '@angular/material/input';
 })
 export class AddComponent {
   formBuild = inject(FormBuilder);
+  productService = inject(ProductsService);
 
   addForm: FormGroup = this.formBuild.group({
     title: ['', [Validators.required]],
     description: ['', [Validators.required]],
-    price: [0, [Validators.required]],
+    price: ['', [Validators.required]],
   });
 
   onSubmit() {
-    console.log(this.addForm.value);
+    this.productService
+      .add({
+        title: this.addForm.value.title,
+        description: this.addForm.value.description,
+        price: this.addForm.value.price,
+      })
+      .subscribe(() => {
+        alert('Sucesso');
+      });
   }
 }
