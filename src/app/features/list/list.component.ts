@@ -4,8 +4,7 @@ import { Product } from '../../interfaces/product';
 import { CardComponent } from '../card/card.component';
 import { Router, RouterLink } from '@angular/router';
 import { MatButtonModule } from '@angular/material/button';
-import { MatDialog } from '@angular/material/dialog';
-import { DeleteComponent } from '../delete/delete.component';
+import { ConfirmationDialogService } from '../../shared/services/confirmation-dialog.service';
 import { filter } from 'rxjs';
 
 @Component({
@@ -20,7 +19,7 @@ export class ListComponent {
 
   productService = inject(ProductsService);
   router = inject(Router);
-  modal = inject(MatDialog);
+  confirmationDialogService = inject(ConfirmationDialogService);
 
   ngOnInit(): void {
     this.productService.getAll().subscribe((products) => {
@@ -33,10 +32,9 @@ export class ListComponent {
   }
 
   onDelete(product: Product) {
-    this.modal
-      .open(DeleteComponent)
-      .afterClosed()
-      .pipe(filter((answer) => answer))
+    this.confirmationDialogService
+      .openDeleteDialog()
+      .pipe(filter((answer) => answer === true))
       .subscribe(() => {
         this.productService.delete(product.id).subscribe(() => {
           this.productService.getAll().subscribe((products) => {
