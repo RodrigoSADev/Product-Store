@@ -18,3 +18,13 @@ body {
   width: 100%;
   max-width: 900px;
 }
+
+.centralized-title {
+  text-align: center;
+}
+
+.actions-button {
+  display: flex;
+  justify-content: end;
+  padding: 1rem 0;
+}
