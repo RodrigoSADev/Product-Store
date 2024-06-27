@@ -3,17 +3,19 @@
     <a mat-raised-button routerLink="/add-product">Adicionar Produto</a>
   </div>
   <h2>Lista de Produtos</h2>
-  @for (product of products(); track product.id) { @defer (on immediate) {
-  <app-card
-    [product]="product"
-    (edit)="onEdit(product)"
-    (delete)="onDelete(product)"
-  />
-  } } @empty { @defer (on immediate) {
-  <mat-card appearance="outlined">
-    <mat-card-content class="message"
-      >Nenhum produto cadastrado.</mat-card-content
-    >
-  </mat-card>
-  } }
+  <div class="item-container">
+    @for (product of products(); track product.id) { @defer (on immediate) {
+    <app-card
+      [product]="product"
+      (edit)="onEdit(product)"
+      (delete)="onDelete(product)"
+    />
+    } } @empty { @defer (on immediate) {
+    <mat-card appearance="outlined">
+      <mat-card-content class="message"
+        >Nenhum produto cadastrado.</mat-card-content
+      >
+    </mat-card>
+    } }
+  </div>
 </section>

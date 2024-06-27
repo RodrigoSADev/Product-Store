@@ -4,6 +4,15 @@
   padding: 1rem 0;
 }
 
+.item-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+  @media (max-width: 600px) {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+
 .message {
   text-align: center;
 }
