@@ -33,6 +33,7 @@ export class FormComponent {
       title: [this.product()?.title, [Validators.required]],
       description: [this.product()?.description, [Validators.required]],
       price: [this.product()?.price, [Validators.required]],
+      quantity: [this.product()?.quantity, [Validators.required]],
     });
   }
 

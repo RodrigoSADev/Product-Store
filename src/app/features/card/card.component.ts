@@ -22,6 +22,7 @@ export class CardComponent {
   productTitle = computed(() => this.product().title);
   productDescription = computed(() => this.product().description);
   productPrice = computed(() => this.product().price);
+  productQuantity = computed(() => this.product().quantity);
 
   @Output() edit = new EventEmitter();
   @Output() delete = new EventEmitter();
