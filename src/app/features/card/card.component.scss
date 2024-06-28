@@ -1,4 +1,17 @@
-.example-card {
-  max-width: 400px;
-  color: #fff;
+.card {
+  padding: 1rem;
+}
+
+.price {
+  font-weight: bold;
+}
+
+.description {
+  word-break: break-all;
+  margin: 1rem 0;
+}
+
+.button-container {
+  display: flex;
+  gap: 0.5rem;
 }

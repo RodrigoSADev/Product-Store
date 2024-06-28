@@ -5,6 +5,7 @@ import {
   MatDialogClose,
   MatDialogContent,
   MatDialogRef,
+  MatDialogTitle,
 } from '@angular/material/dialog';
 
 @Component({
@@ -14,6 +15,7 @@ import {
     MatDialogActions,
     MatDialogClose,
     MatDialogContent,
+    MatDialogTitle,
     MatButtonModule,
   ],
   templateUrl: './delete.component.html',

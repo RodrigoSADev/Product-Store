@@ -1,8 +1,11 @@
 <section>
   <div class="actions-button">
-    <a mat-raised-button routerLink="/add-product">Adicionar Produto</a>
+    <a color="primary" mat-raised-button routerLink="/add-product"
+      >Adicionar Produto</a
+    >
   </div>
   <h2 class="centralized-title">Lista de Produtos</h2>
+  @if (products().length) {
   <div class="item-container">
     @for (product of products(); track product.id) { @defer (on immediate) {
     <app-card
@@ -10,12 +13,9 @@
       (edit)="onEdit(product)"
       (delete)="onDelete(product)"
     />
-    } } @empty { @defer (on immediate) {
-    <mat-card appearance="outlined">
-      <mat-card-content class="centralized-title"
-        >Nenhum produto cadastrado.</mat-card-content
-      >
-    </mat-card>
-    } }
+    }}
   </div>
+  } @else { @defer (on immediate) {
+  <h4 class="paragraph">Nenhum produto cadastrado.</h4>
+  } }
 </section>
