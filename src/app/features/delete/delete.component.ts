@@ -7,6 +7,7 @@ import {
   MatDialogRef,
   MatDialogTitle,
 } from '@angular/material/dialog';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-delete',
@@ -23,8 +24,10 @@ import {
 })
 export class DeleteComponent {
   mattDialogRef = inject(MatDialogRef);
+  matSnackBar = inject(MatSnackBar);
 
   onYes() {
     this.mattDialogRef.close(true);
+    this.matSnackBar.open('Produto removido com sucesso!', 'Ok');
   }
 }
