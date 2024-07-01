@@ -1,14 +1,15 @@
 <section class="form-container">
   <form [formGroup]="form" (ngSubmit)="onSubmit()" class="form-content">
     <mat-form-field>
-      <mat-label>Título</mat-label>
-      <input
-        type="text"
-        matInput
-        formControlName="title"
-        placeholder="Título"
-      />
+      <mat-label>Nome</mat-label>
+      <input type="text" matInput formControlName="name" placeholder="Nome" />
     </mat-form-field>
+    @if (form.controls['name'].errors) { @if (
+    form.controls['name'].errors['required']) {
+    <p class="text-warn">Nome do produto é obrigatório</p>
+    } @if (form.controls['name'].errors['minlength']) {
+    <p class="text-warn">Nome Inválido</p>
+    } }
     <mat-form-field>
       <mat-label>Descrição</mat-label>
       <input
@@ -18,19 +19,37 @@
         placeholder="Descrição"
       />
     </mat-form-field>
+    @if (form.controls['description'].errors) { @if (
+    form.controls['description'].errors['required']) {
+    <p class="text-warn">Descrição do produto é obrigatória</p>
+    } @if (form.controls['description'].errors['minlength']) {
+    <p class="text-warn">Descrição Inválida</p>
+    } }
     <mat-form-field>
       <mat-label>Preço</mat-label>
       <input type="text" matInput formControlName="price" placeholder="Preço" />
     </mat-form-field>
+    @if (form.controls['price'].errors) { @if (
+    form.controls['price'].errors['required']) {
+    <p class="text-warn">Valor do produto é obrigatório</p>
+    } @if (form.controls['price'].errors['pattern']) {
+    <p class="text-warn">Valor Inválido</p>
+    } }
     <mat-form-field>
       <mat-label>Quantidade</mat-label>
       <input
         type="text"
         matInput
         formControlName="quantity"
-        placeholder="quantidade"
+        placeholder="Quantidade"
       />
     </mat-form-field>
+    @if (form.controls['quantity'].errors) { @if (
+    form.controls['quantity'].errors['required']) {
+    <p class="text-warn">Quantidade do produto é obrigatório</p>
+    } @if (form.controls['quantity'].errors['pattern']) {
+    <p class="text-warn">Quantidade Inválida</p>
+    } }
     <button color="accent" mat-raised-button type="submit">Salvar</button>
   </form>
 </section>

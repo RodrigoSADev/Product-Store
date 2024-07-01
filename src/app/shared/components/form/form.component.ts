@@ -30,15 +30,29 @@ export class FormComponent {
 
   ngOnInit(): void {
     this.form = this.formBuild.group({
-      title: [this.product()?.title, [Validators.required]],
-      description: [this.product()?.description, [Validators.required]],
-      price: [this.product()?.price, [Validators.required]],
-      quantity: [this.product()?.quantity, [Validators.required]],
+      name: [
+        this.product()?.name,
+        [Validators.required, Validators.minLength(3)],
+      ],
+      description: [
+        this.product()?.description,
+        [Validators.required, Validators.minLength(5)],
+      ],
+      price: [
+        this.product()?.price,
+        [Validators.required, Validators.pattern(/^[0-9]+$/)],
+      ],
+      quantity: [
+        this.product()?.quantity,
+        [Validators.required, Validators.pattern(/^[0-9]+$/)],
+      ],
     });
   }
 
   onSubmit() {
     const product = this.form.value as Product;
-    this.done.emit(product);
+    if (this.form.valid) {
+      this.done.emit(product);
+    }
   }
 }
