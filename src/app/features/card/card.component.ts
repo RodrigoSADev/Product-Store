@@ -19,7 +19,7 @@ import { Product } from '../../interfaces/product';
 export class CardComponent {
   product = input.required<Product>();
 
-  productTitle = computed(() => this.product().title);
+  productName = computed(() => this.product().name);
   productDescription = computed(() => this.product().description);
   productPrice = computed(() => this.product().price);
   productQuantity = computed(() => this.product().quantity);
