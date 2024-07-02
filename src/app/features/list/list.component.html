@@ -5,9 +5,11 @@
     >
   </div>
   <h2 class="centralized-title">Lista de Produtos</h2>
+  <app-filter (filter)="onFilter($event)"></app-filter>
   @if (products().length) {
   <div class="item-container">
-    @for (product of products(); track product.id) { @defer (on immediate) {
+    @for (product of filteredProducts; track product.id) { @defer (on immediate)
+    {
     <app-card
       [product]="product"
       (edit)="onEdit(product)"
@@ -17,5 +19,7 @@
   </div>
   } @else { @defer (on immediate) {
   <h4 class="paragraph">Nenhum produto cadastrado.</h4>
-  } }
+  } } @if (filteredProducts.length === 0) {
+  <p class="paragraph">Nenhum produto encontrado na categoria selecionada.</p>
+  }
 </section>

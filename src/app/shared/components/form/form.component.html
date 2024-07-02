@@ -50,6 +50,18 @@
     } @if (form.controls['quantity'].errors['pattern']) {
     <p class="text-warn">Quantidade Inválida</p>
     } }
+    <mat-form-field>
+      <mat-label>Categoria</mat-label>
+      <mat-select formControlName="category" placeholder="Categoria">
+        @for (category of categories; track category) {
+        <mat-option [value]="category">{{ category }}</mat-option>
+        }
+      </mat-select>
+    </mat-form-field>
+    @if (form.controls['category'].errors) { @if (
+    form.controls['category'].errors['required']) {
+    <p class="text-warn">Categoria do produto é obrigatória</p>
+    } }
     <button color="accent" mat-raised-button type="submit">Salvar</button>
   </form>
 </section>

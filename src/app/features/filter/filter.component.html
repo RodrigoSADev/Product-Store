@@ -1,0 +1,9 @@
+<mat-form-field>
+  <mat-label>Filtrar por Categoria</mat-label>
+  <mat-select (selectionChange)="onCategorySelected($event)">
+    @for (category of categories; track category) {
+    <mat-option [value]="category">{{ category }}</mat-option>
+    }
+    <mat-option [value]="">Todos</mat-option>
+  </mat-select>
+</mat-form-field>
