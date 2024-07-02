@@ -29,4 +29,8 @@ export class ProductsService {
   delete(id: string) {
     return this.http.delete<ProductPayload>(`/api/products/${id}`);
   }
+
+  getByCategory(category: string): Observable<Product[]> {
+    return this.http.get<Product[]>(`/api/products?category=${category}`);
+  }
 }

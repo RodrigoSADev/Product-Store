@@ -1,4 +1,10 @@
-import { Component, EventEmitter, Output, inject } from '@angular/core';
+import {
+  Component,
+  EventEmitter,
+  Output,
+  ViewChild,
+  inject,
+} from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {
   MatAutocompleteModule,
@@ -27,6 +33,7 @@ import { CategoryService } from '../../shared/services/category.service';
 export class FilterComponent {
   categories: string[] = [];
   @Output() filter = new EventEmitter<string>();
+  @ViewChild(MatSelect) matSelect!: MatSelect;
 
   categoryService = inject(CategoryService);
 
@@ -36,5 +43,10 @@ export class FilterComponent {
 
   onCategorySelected(event: any) {
     this.filter.emit(event.value);
+  }
+
+  resetFilter() {
+    this.matSelect.value = '';
+    this.filter.emit('');
   }
 }

@@ -1,4 +1,4 @@
-import { Component, inject, signal } from '@angular/core';
+import { Component, ViewChild, inject, signal } from '@angular/core';
 import { ProductsService } from '../../shared/services/products.service';
 import { Product } from '../../interfaces/product';
 import { FilterComponent } from '../filter/filter.component';
@@ -24,22 +24,16 @@ import { CategoryService } from '../../shared/services/category.service';
   styleUrl: './list.component.scss',
 })
 export class ListComponent {
+  @ViewChild(FilterComponent) filterComponent!: FilterComponent;
+
   products = signal<Product[]>(
     inject(ActivatedRoute).snapshot.data['products']
   );
-
-  categories: string[] = [];
-  filteredProducts: Product[] = [];
 
   productService = inject(ProductsService);
   router = inject(Router);
   confirmationDialogService = inject(ConfirmationDialogService);
   categoryService = inject(CategoryService);
-
-  ngOnInit(): void {
-    this.categories = this.categoryService.getCategories();
-    this.filteredProducts = this.products();
-  }
 
   onEdit(product: Product) {
     this.router.navigate(['/edit-product', product.id]);
@@ -51,20 +45,25 @@ export class ListComponent {
       .pipe(filter((answer) => answer === true))
       .subscribe(() => {
         this.productService.delete(product.id).subscribe(() => {
-          this.productService.getAll().subscribe((products) => {
-            this.products.set(products);
-          });
+          this.filterComponent.resetFilter();
+          this.loadProducts();
         });
       });
   }
 
-  onFilter(category: string) {
+  onCategoryFilter(category: string) {
     if (category) {
-      this.filteredProducts = this.products().filter(
-        (product) => product.category === category
-      );
+      this.productService
+        .getByCategory(category)
+        .subscribe((products) => this.products.set(products));
     } else {
-      this.filteredProducts = this.products();
+      this.loadProducts();
     }
+  }
+
+  loadProducts() {
+    this.productService
+      .getAll()
+      .subscribe((products) => this.products.set(products));
   }
 }
