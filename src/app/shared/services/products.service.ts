@@ -11,30 +11,22 @@ export class ProductsService {
   http = inject(HttpClient);
 
   getAll(): Observable<Product[]> {
-    return this.http.get<Product[]>('http://localhost:3000/products');
+    return this.http.get<Product[]>('/api/products/');
   }
 
   getById(id: string): Observable<Product> {
-    return this.http.get<Product>(`http://localhost:3000/products/${id}`);
+    return this.http.get<Product>(`/api/products/${id}`);
   }
 
   add(payload: ProductPayload) {
-    return this.http.post<ProductPayload>(
-      'http://localhost:3000/products',
-      payload
-    );
+    return this.http.post<ProductPayload>('/api/products', payload);
   }
 
   update(id: string, payload: ProductPayload) {
-    return this.http.put<ProductPayload>(
-      `http://localhost:3000/products/${id}`,
-      payload
-    );
+    return this.http.put<ProductPayload>(`/api/products/${id}`, payload);
   }
 
   delete(id: string) {
-    return this.http.delete<ProductPayload>(
-      `http://localhost:3000/products/${id}`
-    );
+    return this.http.delete<ProductPayload>(`/api/products/${id}`);
   }
 }

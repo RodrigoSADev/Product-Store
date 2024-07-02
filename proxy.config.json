@@ -1,0 +1,9 @@
+{
+  "/api/": {
+    "target": "https://product-store-api-sigma.vercel.app",
+    "changeOrigin": true,
+    "pathRewrite": {
+      "^/api": ""
+    }
+  }
+}
