@@ -1,11 +1,204 @@
 {
   "products": [
     {
-      "name": "Notebook",
-      "description": "Um lindo notebook",
-      "price": 3500,
-      "quantity": "20",
-      "id": "1"
+      "id": 1,
+      "name": "Smartphone XYZ",
+      "description": "Smartphone com tela de 6.5 polegadas e 128GB de armazenamento",
+      "price": "1500.00",
+      "quantity": 50,
+      "category": "Eletrônicos"
+    },
+    {
+      "id": 2,
+      "name": "TV 4K ABC",
+      "description": "Televisão 4K de 55 polegadas com HDR",
+      "price": "3000.00",
+      "quantity": 30,
+      "category": "Eletrônicos"
+    },
+    {
+      "id": 3,
+      "name": "Laptop DEF",
+      "description": "Laptop com 16GB de RAM e 512GB SSD",
+      "price": "4500.00",
+      "quantity": 20,
+      "category": "Eletrônicos"
+    },
+    {
+      "id": 4,
+      "name": "Fone de Ouvido GHI",
+      "description": "Fone de ouvido sem fio com cancelamento de ruído",
+      "price": "500.00",
+      "quantity": 100,
+      "category": "Eletrônicos"
+    },
+    {
+      "id": 5,
+      "name": "Câmera JKL",
+      "description": "Câmera digital com 24MP e zoom óptico de 10x",
+      "price": "2000.00",
+      "quantity": 15,
+      "category": "Eletrônicos"
+    },
+    {
+      "id": 6,
+      "name": "Arroz Integral",
+      "description": "Pacote de 1kg de arroz integral",
+      "price": "10.00",
+      "quantity": 200,
+      "category": "Alimentos"
+    },
+    {
+      "id": 7,
+      "name": "Feijão Preto",
+      "description": "Pacote de 1kg de feijão preto",
+      "price": "8.00",
+      "quantity": 150,
+      "category": "Alimentos"
+    },
+    {
+      "id": 8,
+      "name": "Macarrão",
+      "description": "Pacote de 500g de macarrão",
+      "price": "5.00",
+      "quantity": 180,
+      "category": "Alimentos"
+    },
+    {
+      "id": 9,
+      "name": "Óleo de Coco",
+      "description": "Garrafa de 500ml de óleo de coco",
+      "price": "20.00",
+      "quantity": 90,
+      "category": "Alimentos"
+    },
+    {
+      "id": 10,
+      "name": "Aveia em Flocos",
+      "description": "Pacote de 1kg de aveia em flocos",
+      "price": "15.00",
+      "quantity": 120,
+      "category": "Alimentos"
+    },
+    {
+      "id": 11,
+      "name": "Camiseta Básica",
+      "description": "Camiseta de algodão em diversas cores",
+      "price": "25.00",
+      "quantity": 300,
+      "category": "Roupas"
+    },
+    {
+      "id": 12,
+      "name": "Calça Jeans",
+      "description": "Calça jeans masculina de vários tamanhos",
+      "price": "80.00",
+      "quantity": 100,
+      "category": "Roupas"
+    },
+    {
+      "id": 13,
+      "name": "Vestido Floral",
+      "description": "Vestido floral de verão",
+      "price": "120.00",
+      "quantity": 70,
+      "category": "Roupas"
+    },
+    {
+      "id": 14,
+      "name": "Jaqueta de Couro",
+      "description": "Jaqueta de couro sintético",
+      "price": "200.00",
+      "quantity": 50,
+      "category": "Roupas"
+    },
+    {
+      "id": 15,
+      "name": "Tênis Esportivo",
+      "description": "Tênis esportivo para corrida",
+      "price": "150.00",
+      "quantity": 90,
+      "category": "Roupas"
+    },
+    {
+      "id": 16,
+      "name": "Sofá de 3 Lugares",
+      "description": "Sofá confortável de 3 lugares",
+      "price": "1200.00",
+      "quantity": 20,
+      "category": "Móveis"
+    },
+    {
+      "id": 17,
+      "name": "Mesa de Jantar",
+      "description": "Mesa de jantar para 6 pessoas",
+      "price": "800.00",
+      "quantity": 15,
+      "category": "Móveis"
+    },
+    {
+      "id": 18,
+      "name": "Cadeira de Escritório",
+      "description": "Cadeira ergonômica para escritório",
+      "price": "350.00",
+      "quantity": 40,
+      "category": "Móveis"
+    },
+    {
+      "id": 19,
+      "name": "Estante de Livros",
+      "description": "Estante de madeira para livros",
+      "price": "500.00",
+      "quantity": 25,
+      "category": "Móveis"
+    },
+    {
+      "id": 20,
+      "name": "Cama de Casal",
+      "description": "Cama de casal com colchão",
+      "price": "1500.00",
+      "quantity": 10,
+      "category": "Móveis"
+    },
+    {
+      "id": 21,
+      "name": "Martelo",
+      "description": "Martelo de aço com cabo de borracha",
+      "price": "30.00",
+      "quantity": 100,
+      "category": "Ferramentas"
+    },
+    {
+      "id": 22,
+      "name": "Chave de Fenda",
+      "description": "Conjunto de chaves de fenda de vários tamanhos",
+      "price": "50.00",
+      "quantity": 150,
+      "category": "Ferramentas"
+    },
+    {
+      "id": 23,
+      "name": "Furadeira",
+      "description": "Furadeira elétrica com brocas",
+      "price": "300.00",
+      "quantity": 50,
+      "category": "Ferramentas"
+    },
+    {
+      "id": 24,
+      "name": "Alicate",
+      "description": "Alicate de corte com cabo antideslizante",
+      "price": "25.00",
+      "quantity": 80,
+      "category": "Ferramentas"
+    },
+    {
+      "id": 25,
+      "name": "Serrote",
+      "description": "Serrote de mão com lâmina de 20 polegadas",
+      "price": "40.00",
+      "quantity": 60,
+      "category": "Ferramentas"
     }
   ]
 }
