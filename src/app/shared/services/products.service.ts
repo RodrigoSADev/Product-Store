@@ -11,26 +11,40 @@ export class ProductsService {
   http = inject(HttpClient);
 
   getAll(): Observable<Product[]> {
-    return this.http.get<Product[]>('/api/products/');
+    return this.http.get<Product[]>(
+      'https://product-store-api-sigma.vercel.app/products/'
+    );
   }
 
   getById(id: string): Observable<Product> {
-    return this.http.get<Product>(`/api/products/${id}`);
+    return this.http.get<Product>(
+      `https://product-store-api-sigma.vercel.app/products/${id}`
+    );
   }
 
   add(payload: ProductPayload) {
-    return this.http.post<ProductPayload>('/api/products', payload);
+    return this.http.post<ProductPayload>(
+      'https://product-store-api-sigma.vercel.app/products',
+      payload
+    );
   }
 
   update(id: string, payload: ProductPayload) {
-    return this.http.put<ProductPayload>(`/api/products/${id}`, payload);
+    return this.http.put<ProductPayload>(
+      `https://product-store-api-sigma.vercel.app/products/${id}`,
+      payload
+    );
   }
 
   delete(id: string) {
-    return this.http.delete<ProductPayload>(`/api/products/${id}`);
+    return this.http.delete<ProductPayload>(
+      `https://product-store-api-sigma.vercel.app/products/${id}`
+    );
   }
 
   getByCategory(category: string): Observable<Product[]> {
-    return this.http.get<Product[]>(`/api/products?category=${category}`);
+    return this.http.get<Product[]>(
+      `https://product-store-api-sigma.vercel.app/products?category=${category}`
+    );
   }
 }
