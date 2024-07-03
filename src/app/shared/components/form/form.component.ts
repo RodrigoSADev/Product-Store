@@ -33,6 +33,7 @@ export class FormComponent {
   categoryService = inject(CategoryService);
   form!: FormGroup;
   categories: string[] = [];
+  submitted: boolean = false;
   @Output() done = new EventEmitter<Product>();
 
   ngOnInit(): void {
@@ -63,6 +64,7 @@ export class FormComponent {
 
   onSubmit() {
     const product = this.form.value as Product;
+    this.submitted = true;
     if (this.form.valid) {
       this.done.emit(product);
     }

@@ -4,7 +4,7 @@
       <mat-label>Nome</mat-label>
       <input type="text" matInput formControlName="name" placeholder="Nome" />
     </mat-form-field>
-    @if (form.controls['name'].errors) { @if (
+    @if (submitted && form.controls['name'].errors) { @if (
     form.controls['name'].errors['required']) {
     <p class="text-warn">Nome do produto é obrigatório</p>
     } @if (form.controls['name'].errors['minlength']) {
@@ -19,7 +19,7 @@
         placeholder="Descrição"
       />
     </mat-form-field>
-    @if (form.controls['description'].errors) { @if (
+    @if (submitted && form.controls['description'].errors) { @if (
     form.controls['description'].errors['required']) {
     <p class="text-warn">Descrição do produto é obrigatória</p>
     } @if (form.controls['description'].errors['minlength']) {
@@ -29,7 +29,7 @@
       <mat-label>Preço</mat-label>
       <input type="text" matInput formControlName="price" placeholder="Preço" />
     </mat-form-field>
-    @if (form.controls['price'].errors) { @if (
+    @if (submitted && form.controls['price'].errors) { @if (
     form.controls['price'].errors['required']) {
     <p class="text-warn">Valor do produto é obrigatório</p>
     } @if (form.controls['price'].errors['pattern']) {
@@ -44,7 +44,7 @@
         placeholder="Quantidade"
       />
     </mat-form-field>
-    @if (form.controls['quantity'].errors) { @if (
+    @if (submitted && form.controls['quantity'].errors) { @if (
     form.controls['quantity'].errors['required']) {
     <p class="text-warn">Quantidade do produto é obrigatório</p>
     } @if (form.controls['quantity'].errors['pattern']) {
@@ -58,7 +58,7 @@
         }
       </mat-select>
     </mat-form-field>
-    @if (form.controls['category'].errors) { @if (
+    @if (submitted && form.controls['category'].errors) { @if (
     form.controls['category'].errors['required']) {
     <p class="text-warn">Categoria do produto é obrigatória</p>
     } }
