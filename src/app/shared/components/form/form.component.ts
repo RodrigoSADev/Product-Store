@@ -48,7 +48,10 @@ export class FormComponent {
       ],
       price: [
         this.product()?.price,
-        [Validators.required, Validators.pattern(/^[0-9]+$/)],
+        [
+          Validators.required,
+          Validators.pattern(/^(?!.*[.,\s]$)(?!^[.,\s])[0-9.,]+$/),
+        ],
       ],
       quantity: [
         this.product()?.quantity,
