@@ -21,7 +21,7 @@ describe('Edit Componente', () => {
 
   it('should display the form', () => {
     cy.visit('http://localhost:4200/edit-product/1');
-    cy.get('[data-cy="add-edit-form"]').should('exist');
+    cy.get('[data-cy="add-edit-form"]').should('be.visible');
     cy.get('mat-form-field').should('have.length', 5);
   });
 

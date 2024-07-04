@@ -4,9 +4,9 @@ describe('Filter Componente', () => {
   });
 
   it('should display the filter', () => {
-    cy.get('[data-cy="filter-mat-form"]').should('exist');
+    cy.get('[data-cy="filter-mat-form"]').should('be.visible');
     cy.get('mat-label').contains('Filtrar por Categoria');
-    cy.get('[data-cy="filter-mat-select"]').should('exist').click();
+    cy.get('[data-cy="filter-mat-select"]').should('be.visible').click();
     cy.get('mat-option').should('have.length', 6);
   });
 

@@ -13,19 +13,10 @@ describe('List Component', () => {
       .and('contain.text', 'Lista de Produtos');
   });
 
-  it('should display the product title', () => {
+  it('should display the product', () => {
     cy.get('[data-cy="list-product-title"]').should('be.visible');
-  });
-
-  it('should display the product price', () => {
     cy.get('[data-cy="list-product-price"]').should('be.visible');
-  });
-
-  it('should display the product description', () => {
     cy.get('[data-cy="list-product-description"]').should('be.visible');
-  });
-
-  it('should display the product quantity', () => {
     cy.get('[data-cy="list-product-quantity"]').should('be.visible');
   });
 });

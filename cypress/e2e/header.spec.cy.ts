@@ -3,11 +3,11 @@ describe('Header Componente', () => {
     cy.visit('http://localhost:4200/');
   });
 
-  it('should render header with title', () => {
-    cy.get('[data-cy="header"]').should('exist');
-    cy.get('[data-cy="header-mat-toolbar"]').should('exist');
+  it('should render header', () => {
+    cy.get('[data-cy="header"]').should('be.visible');
+    cy.get('[data-cy="header-mat-toolbar"]').should('be.visible');
     cy.get('[data-cy="header-title"]')
-      .should('exist')
+      .should('be.visible')
       .and('contain.text', 'Gerenciador de Produtos');
   });
 });
