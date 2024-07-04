@@ -14,12 +14,12 @@ import { BackToListComponent } from '../../shared/components/back-to-list/back-t
   styleUrl: './add.component.scss',
 })
 export class AddComponent {
-  productService = inject(ProductsService);
+  productsService = inject(ProductsService);
   matSnackBar = inject(MatSnackBar);
   router = inject(Router);
 
   onSubmit(product: Product) {
-    this.productService.add(product).subscribe(() => {
+    this.productsService.add(product).subscribe(() => {
       this.matSnackBar.open('Produto adicionado com sucesso!', 'Ok');
       this.router.navigateByUrl('/');
     });

@@ -8,43 +8,32 @@ import { ProductPayload } from '../../interfaces/payload.product';
   providedIn: 'root',
 })
 export class ProductsService {
+  private readonly API = 'https://product-store-api-sigma.vercel.app';
   http = inject(HttpClient);
 
   getAll(): Observable<Product[]> {
-    return this.http.get<Product[]>(
-      'https://product-store-api-sigma.vercel.app/products/'
-    );
+    return this.http.get<Product[]>(`${this.API}/products`);
   }
 
   getById(id: string): Observable<Product> {
-    return this.http.get<Product>(
-      `https://product-store-api-sigma.vercel.app/products/${id}`
-    );
+    return this.http.get<Product>(`${this.API}/products/${id}`);
   }
 
   add(payload: ProductPayload) {
-    return this.http.post<ProductPayload>(
-      'https://product-store-api-sigma.vercel.app/products',
-      payload
-    );
+    return this.http.post<ProductPayload>(`${this.API}/products`, payload);
   }
 
   update(id: string, payload: ProductPayload) {
-    return this.http.put<ProductPayload>(
-      `https://product-store-api-sigma.vercel.app/products/${id}`,
-      payload
-    );
+    return this.http.put<ProductPayload>(`${this.API}/products/${id}`, payload);
   }
 
   delete(id: string) {
-    return this.http.delete<ProductPayload>(
-      `https://product-store-api-sigma.vercel.app/products/${id}`
-    );
+    return this.http.delete<ProductPayload>(`${this.API}/products/${id}`);
   }
 
   getByCategory(category: string): Observable<Product[]> {
     return this.http.get<Product[]>(
-      `https://product-store-api-sigma.vercel.app/products?category=${category}`
+      `${this.API}/products?category=${category}`
     );
   }
 }

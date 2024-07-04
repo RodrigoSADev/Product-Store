@@ -30,7 +30,7 @@ export class ListComponent {
     inject(ActivatedRoute).snapshot.data['products']
   );
 
-  productService = inject(ProductsService);
+  productsService = inject(ProductsService);
   router = inject(Router);
   confirmationDialogService = inject(ConfirmationDialogService);
   categoryService = inject(CategoryService);
@@ -44,7 +44,7 @@ export class ListComponent {
       .openDeleteDialog()
       .pipe(filter((answer) => answer === true))
       .subscribe(() => {
-        this.productService.delete(product.id).subscribe(() => {
+        this.productsService.delete(product.id).subscribe(() => {
           this.filterComponent.resetFilter();
           this.loadProducts();
         });
@@ -53,7 +53,7 @@ export class ListComponent {
 
   onCategoryFilter(category: string) {
     if (category) {
-      this.productService
+      this.productsService
         .getByCategory(category)
         .subscribe((products) => this.products.set(products));
     } else {
@@ -62,7 +62,7 @@ export class ListComponent {
   }
 
   loadProducts() {
-    this.productService
+    this.productsService
       .getAll()
       .subscribe((products) => this.products.set(products));
   }
