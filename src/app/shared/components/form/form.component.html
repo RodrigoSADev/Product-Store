@@ -1,14 +1,21 @@
 <section class="form-container">
-  <form [formGroup]="form" (ngSubmit)="onSubmit()" class="form-content">
+  <form
+    data-cy="add-edit-form"
+    [formGroup]="form"
+    (ngSubmit)="onSubmit()"
+    class="form-content"
+  >
     <mat-form-field>
       <mat-label>Nome</mat-label>
       <input type="text" matInput formControlName="name" placeholder="Nome" />
     </mat-form-field>
     @if (submitted && form.controls['name'].errors) { @if (
     form.controls['name'].errors['required']) {
-    <p class="text-warn">Nome do produto é obrigatório</p>
+    <p data-cy="add-edit-text-warn" class="text-warn">
+      Nome do produto é obrigatório
+    </p>
     } @if (form.controls['name'].errors['minlength']) {
-    <p class="text-warn">Nome Inválido</p>
+    <p data-cy="add-edit-text-warn" class="text-warn">Nome Inválido</p>
     } }
     <mat-form-field>
       <mat-label>Descrição</mat-label>
@@ -21,9 +28,11 @@
     </mat-form-field>
     @if (submitted && form.controls['description'].errors) { @if (
     form.controls['description'].errors['required']) {
-    <p class="text-warn">Descrição do produto é obrigatória</p>
+    <p data-cy="add-edit-text-warn" class="text-warn">
+      Descrição do produto é obrigatória
+    </p>
     } @if (form.controls['description'].errors['minlength']) {
-    <p class="text-warn">Descrição Inválida</p>
+    <p data-cy="add-edit-text-warn" class="text-warn">Descrição Inválida</p>
     } }
     <mat-form-field>
       <mat-label>Preço</mat-label>
@@ -31,9 +40,11 @@
     </mat-form-field>
     @if (submitted && form.controls['price'].errors) { @if (
     form.controls['price'].errors['required']) {
-    <p class="text-warn">Valor do produto é obrigatório</p>
+    <p data-cy="add-edit-text-warn" class="text-warn">
+      Valor do produto é obrigatório
+    </p>
     } @if (form.controls['price'].errors['pattern']) {
-    <p class="text-warn">Valor Inválido</p>
+    <p data-cy="add-edit-text-warn" class="text-warn">Valor Inválido</p>
     } }
     <mat-form-field>
       <mat-label>Quantidade</mat-label>
@@ -46,9 +57,11 @@
     </mat-form-field>
     @if (submitted && form.controls['quantity'].errors) { @if (
     form.controls['quantity'].errors['required']) {
-    <p class="text-warn">Quantidade do produto é obrigatório</p>
+    <p data-cy="add-edit-text-warn" class="text-warn">
+      Quantidade do produto é obrigatório
+    </p>
     } @if (form.controls['quantity'].errors['pattern']) {
-    <p class="text-warn">Quantidade Inválida</p>
+    <p data-cy="add-edit-text-warn" class="text-warn">Quantidade Inválida</p>
     } }
     <mat-form-field>
       <mat-label>Categoria</mat-label>
@@ -60,8 +73,17 @@
     </mat-form-field>
     @if (submitted && form.controls['category'].errors) { @if (
     form.controls['category'].errors['required']) {
-    <p class="text-warn">Categoria do produto é obrigatória</p>
+    <p data-cy="add-edit-text-warn" class="text-warn">
+      Categoria do produto é obrigatória
+    </p>
     } }
-    <button color="accent" mat-raised-button type="submit">Salvar</button>
+    <button
+      data-cy="add-edit-save-button"
+      color="accent"
+      mat-raised-button
+      type="submit"
+    >
+      Salvar
+    </button>
   </form>
 </section>

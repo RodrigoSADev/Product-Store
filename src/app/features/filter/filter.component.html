@@ -1,6 +1,9 @@
-<mat-form-field>
+<mat-form-field data-cy="filter-mat-form">
   <mat-label>Filtrar por Categoria</mat-label>
-  <mat-select (selectionChange)="onCategorySelected($event)">
+  <mat-select
+    data-cy="filter-mat-select"
+    (selectionChange)="onCategorySelected($event)"
+  >
     @for (category of categories; track category) {
     <mat-option [value]="category">{{ category }}</mat-option>
     }

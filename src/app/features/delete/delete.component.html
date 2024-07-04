@@ -1,8 +1,22 @@
-<h2 mat-dialog-title>Deletar Produto</h2>
-<mat-dialog-content>
+<h2 data-cy="delete-title" mat-dialog-title>Deletar Produto</h2>
+<mat-dialog-content data-cy="delete-message">
   Tem certeza que deseja deletar esse produto?
 </mat-dialog-content>
 <mat-dialog-actions align="end">
-  <button mat-raised-button mat-dialog-close cdkFocusInitial>Não</button>
-  <button color="warn" mat-raised-button (click)="onYes()">Sim</button>
+  <button
+    data-cy="delete-button-no"
+    mat-raised-button
+    mat-dialog-close
+    cdkFocusInitial
+  >
+    Não
+  </button>
+  <button
+    data-cy="delete-button-yes"
+    color="warn"
+    mat-raised-button
+    (click)="onYes()"
+  >
+    Sim
+  </button>
 </mat-dialog-actions>

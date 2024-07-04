@@ -1,18 +1,34 @@
-<mat-card class="card" appearance="outlined">
+<mat-card data-cy="list-mat-card" class="card" appearance="outlined">
   <mat-card-header>
     <mat-card-title-group>
-      <mat-card-title>{{ productName() }} </mat-card-title>
-      <p class="bold">{{ productPrice() }} R$</p>
+      <mat-card-title data-cy="list-product-title"
+        >{{ productName() }}
+      </mat-card-title>
+      <p data-cy="list-product-price" class="bold">{{ productPrice() }} R$</p>
     </mat-card-title-group>
   </mat-card-header>
-  <mat-card-content class="description">
+  <mat-card-content data-cy="list-product-description" class="description">
     {{ productDescription() }}
   </mat-card-content>
-  <mat-card-content class="quantity">
+  <mat-card-content data-cy="list-product-quantity" class="quantity">
     Quantidade: {{ productQuantity() }} unidades
   </mat-card-content>
   <mat-card-actions class="button-container">
-    <button color="accent" mat-raised-button (click)="onEdit()">Editar</button>
-    <button color="warn" mat-raised-button (click)="onDelete()">Deletar</button>
+    <button
+      data-cy="edit-button"
+      color="accent"
+      mat-raised-button
+      (click)="onEdit()"
+    >
+      Editar
+    </button>
+    <button
+      data-cy="delete-button"
+      color="warn"
+      mat-raised-button
+      (click)="onDelete()"
+    >
+      Deletar
+    </button>
   </mat-card-actions>
 </mat-card>
