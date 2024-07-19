@@ -4,7 +4,7 @@
 Product Store é uma aplicação web desenvolvida em Angular que simula um gerenciamento de inventário de produtos, proporcionando um conjunto completo de ferramentas para o controle e organização de produtos.
 
 
-## Stack utilizada
+## Stack Utilizada
 
 **Front-end:** Angular, TypeScript, Angular Material, Sass, Cypress
 
